@@ -1,0 +1,71 @@
+\documentclass{article}[12pt]
+
+%% Adam Shaw, April 2015
+%% in conjunction with CMSC 23500, Spring 2015, Univ of Chicago
+
+\setlength{\parskip}{8pt}
+\setlength{\parindent}{0cm}
+
+\newcommand{\assignment}{Homework 2}
+\newcommand{\whoami}{Melissa Grossbarth}
+\newcommand{\assignmentdate}{April 23, 2015}
+
+% various macros for relational algebra...
+% edit, and supplement with your own
+
+% rel : relation
+\newcommand{\rel}[1]{\ensuremath{#1}}
+
+% conj : conjunction
+\newcommand{\conj}[2]{\ensuremath{#1 \wedge #2}}
+
+% disj : disjunction
+\newcommand{\disj}[2]{\ensuremath{#1 \vee #2}}
+
+% nj : natural join 
+\newcommand{\nj}[2]{\ensuremath{#1 \bowtie #2}}
+
+% sel : select
+\newcommand{\sel}[2]{\ensuremath{\sigma_{#1} #2}}
+
+% proj : project
+\newcommand{\proj}[2]{\ensuremath{\pi_{#1} #2}}
+
+% ren : rename
+\newcommand{\ren}[2]{\ensuremath{\rho_{#1} #2}}
+
+% ...
+
+\begin{document}
+
+{\large \bf CMSC 23500: Introduction to Databases}
+
+\assignment \\
+\whoami \\
+\assignmentdate
+
+\hrulefill
+
+% a few expressions to get you started...
+
+\begin{enumerate}
+
+\item[A1.] \proj{pname} (\sel{visits\char`_per\char`_year<100}{\rel{p}})
+
+\item[A2.] \proj{ssn} (\nj{\rel{r}}({\sel{pname="Yellowstone"}{\rel{p}}}))
+
+\item[A3.] \proj{lname} (\nj {\nj{\rel{r}}{\rel{p}}}({\sel{pop<2,000,000}{ \rel{s}}}))
+
+\item[B1.] \proj{lname} (\nj{\nj{\rel{p}}{\rel{w}}}({\sel{sname="Yesterday"}{\rel{s}}}))
+
+\item[B2.] \proj{sname} (\nj{\nj{\rel{s}}{\rel{w}}}({\sel{fname="Richard" \char`^ lname="Rodgers"}{\rel{p}}}))
+
+\item[B3.] \proj{sname} (\nj{\rel{s}}{\nj{\nj{\rel{t}}{\rel{r}}}({\sel{iname="flute"}{\rel{i}}})})
+
+\item[B4.] \proj{lname} (\nj{\nj{\rel{p}}{\rel{r}}}({\sel{iname="guitar"}{\rel{i}}}))
+
+\item[B5.] \proj{fname,lname} (\nj{\rel{s}}{\nj{\rel{w}}{\nj{\rel{p}}{\nj{\rel{t}}{\nj{\rel{r}}{({\sel{iname="tuba"}{\rel{i}}})}}}}})
+
+\end{enumerate}
+
+\end{document}
