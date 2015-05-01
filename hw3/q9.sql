@@ -1,0 +1,1 @@
+SELECT authID, lname FROM Authorship NATURAL JOIN Authors;
