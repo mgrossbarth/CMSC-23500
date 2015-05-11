@@ -1,0 +1,71 @@
+\documentclass{article}[12pt]
+
+%% Adam Shaw, April 2015
+%% in conjunction with CMSC 23500, Spring 2015, Univ of Chicago
+
+\setlength{\parskip}{8pt}
+\setlength{\parindent}{0cm}
+
+\newcommand{\assignment}{Homework 4}
+\newcommand{\whoami}{Melissa Grossbarth}
+\newcommand{\assignmentdate}{May 11, 2015}
+
+% various macros for relational algebra...
+% edit, and supplement with your own
+
+% rel : relation
+\newcommand{\rel}[1]{\ensuremath{#1}}
+
+% conj : conjunction
+\newcommand{\conj}[2]{\ensuremath{#1 \wedge #2}}
+
+% disj : disjunction
+\newcommand{\disj}[2]{\ensuremath{#1 \vee #2}}
+
+% nj : natural join 
+\newcommand{\nj}[2]{\ensuremath{#1 \bowtie #2}}
+
+% sel : select
+\newcommand{\sel}[2]{\ensuremath{\sigma_{#1} #2}}
+
+% proj : project
+\newcommand{\proj}[2]{\ensuremath{\pi_{#1} #2}}
+
+% ren : rename
+\newcommand{\ren}[2]{\ensuremath{\rho_{#1} #2}}
+
+% ...
+
+\begin{document}
+
+{\large \bf CMSC 23500: Introduction to Databases}
+
+\assignment \\
+\whoami \\
+\assignmentdate
+
+\hrulefill
+
+% a few expressions to get you started...
+
+\begin{enumerate}
+
+\item[]Let \rel{f} represent flights and \rel{a} represent airports.
+
+\item Let A1 = \proj{dst}({\sel{src="XYZ"}(\rel{f})})
+
+\item[] Then the answer is N1 = \proj{name}(\nj{\rel{a}}{A1})
+
+\item Let A2 = \proj{dst}(\nj{\rel{f}}({\ren{dst \rightarrow src} (A1)}))
+
+\item[] Then the answer is N2 = \proj{name}(\nj{\rel{a}}{A2})
+
+\item Let A3 = \proj{dst}(\nj{\rel{f}}({\ren{dst \rightarrow src} (A2)}))
+
+\item[] Then the answer is N3 = \proj{name}(\nj{\rel{a}}{A3})
+
+\item \disj{N1}{\disj{N2}{N3}}
+
+\end{enumerate}
+
+\end{document}
