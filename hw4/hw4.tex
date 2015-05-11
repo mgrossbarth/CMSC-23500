@@ -54,17 +54,17 @@
 
 \item Let A1 = \proj{dst}({\sel{src="XYZ"}(\rel{f})})
 
-\item[] Then the answer is N1 = \proj{name}(\nj{\rel{a}}{A1})
+\item[] Then the answer is N1 = \proj{name}(\nj{\rel{a}}({\ren{dst \rightarrow airportCode}{A1}}))
 
 \item Let A2 = \proj{dst}(\nj{\rel{f}}({\ren{dst \rightarrow src} (A1)}))
 
-\item[] Then the answer is N2 = \proj{name}(\nj{\rel{a}}{A2})
+\item[] Then the answer is N2 = \proj{name}(\nj{\rel{a}}({\ren{dst \rightarrow airportCode}{A2}}))
 
 \item Let A3 = \proj{dst}(\nj{\rel{f}}({\ren{dst \rightarrow src} (A2)}))
 
-\item[] Then the answer is N3 = \proj{name}(\nj{\rel{a}}{A3})
+\item[] Then the answer is N3 = \proj{name}(\nj{\rel{a}}({\ren{dst \rightarrow airportCode}{A3}}))
 
-\item \disj{N1}{\disj{N2}{N3}}
+\item N1 \cup N2 \cup N3
 
 \end{enumerate}
 
